@@ -1,8 +1,8 @@
 import Link from "next/link";
 
-const HotelSummaryInfo = ({fromListPage}) => {
+const HotelSummaryInfo = ({ fromListPage }) => {
   return (
-    <>
+    <div className="flex flex-col lg:flex-row justify-between items-start w-full">
       <div className={fromListPage ? "flex-1" : "flex-1 container"}>
         <h2 className={fromListPage ? "font-bold text-lg" : "font-bold text-2xl"}>Effotel By Sayaji Jaipur</h2>
         <p>📍 Kolkata</p>
@@ -17,12 +17,14 @@ const HotelSummaryInfo = ({fromListPage}) => {
 
       <div className="flex flex-col gap-2 items-end justify-center">
         <h2 className="text-2xl font-bold text-right">$124/night</h2>
-        <p className=" text-right">Per Night for 4 Rooms</p>
+        <p className="text-right">Per Night for 4 Rooms</p>
         {
-          fromListPage ? (<Link href="/hotel/1" className="btn-primary bg-primary">Details</Link>) : (<Link className="btn-primary ">Book</Link>)
+          fromListPage 
+          ? (<Link href="/hotels/1"><span className="btn-primary bg-primary">Details</span></Link>) 
+          : (<Link href="/bookings"><span className="btn-primary bg-primary">Book</span></Link>)
         }
       </div>
-    </>
+    </div>
   );
 };
 
