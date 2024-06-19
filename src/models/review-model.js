@@ -1,7 +1,8 @@
+
 import mongoose, {Schema} from "mongoose";
 import { ObjectId } from "mongodb";
 
-const bookingSchema = new Schema({
+const reviewSchema = new Schema({
   hotelId: {
     required: true,
     type: ObjectId
@@ -10,15 +11,11 @@ const bookingSchema = new Schema({
     required: true,
     type: ObjectId
   },
-  checkin: {
+  review: {
     required: true,
-    type: String
-  },
-  checkout: {
-    required: true,
-    type: String
+    type: Number
   },
 });
 
 
-export const bookingModel = mongoose.models.bookings ?? mongoose.model("bookings", bookingSchema);
+export const reviewModel = mongoose.models.reviews ?? mongoose.model("reviews", reviewSchema);
