@@ -1,7 +1,8 @@
 "use client";
+import { useRouter } from "next/navigation";
 import React from "react";
 const PaymentForm = ({ checkinUserInfo, hotelInfo, checkin, checkout }) => {
-
+  const router = useRouter();
   const price = (hotelInfo.lowRate + hotelInfo.highRate) / 2;
   const [paymentInfo, setPaymentInfo] = React.useState({
     name: checkinUserInfo.name || "",
@@ -19,9 +20,33 @@ const PaymentForm = ({ checkinUserInfo, hotelInfo, checkin, checkout }) => {
     setPaymentInfo({ ...paymentInfo, [name]: value });
   }
 
-  console.log(paymentInfo, "paymentInfo");
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const payload = {
+      hotelId: hotelInfo.id,
+      userId: checkinUserInfo.id,
+      checkin: checkin,
+      checkout: checkout,
+    }
+
+    try {
+      const res = await fetch("/api/payment", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      })
+
+      res.status === 201 && router.push("/bookings");
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   return (
-    <form className="my-8" >
+    <form className="my-8" onSubmit={handleSubmit}>
       <div className="my-4 space-y-2">
         <label htmlFor="name" className="block">
           Name
