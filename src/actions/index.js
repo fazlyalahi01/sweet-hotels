@@ -10,6 +10,7 @@ export async function login(formData) {
             password: formData.get("password"),
             redirect: false
         })
+        
         return response;
     } catch (error) {
         throw new Error(error);
