@@ -18,7 +18,6 @@ async function getHotels(destination, checkin, checkout,) {
         allHotels = await Promise.all(
             allHotels.map(async (hotel) => {
                 const found = await findBooking(hotel._id, checkin, checkout);
-                console.log(found);
                 if (found) {
                     hotel["isBooked"] = true;
                 } else {

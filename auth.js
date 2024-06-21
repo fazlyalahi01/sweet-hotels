@@ -26,7 +26,6 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
                     const { email, password } = credentials
                     const user = await userModel.findOne({ email })
                     const isMatch = await bcrypt.compare(password, user.password);
-                    console.log(isMatch, 'isMatch')
                     if (isMatch) {
                         return user
                     } else {
