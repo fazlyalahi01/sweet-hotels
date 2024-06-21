@@ -10,7 +10,7 @@ const HotelReviewNumber = async ({id}) => {
     {
       reviews?.length === 0 ?
         (<Link href="#" className="underline">Be the first to review</Link>) :
-        (<Link href={`/hotel/${id}/reviews`} className="underline">{reviews.length} Reviews</Link>)
+        (<Link href={`/hotels/${id}/reviews`} className="underline">{reviews.length} Reviews</Link>)
     }
     </>
   )

@@ -1,3 +1,5 @@
+import moment from "moment"
+
 export const replaceMongoIdInArray = (array) => {
     const newArray = array.map((el) => {
         return { ...el, id: el._id.toString() }
@@ -8,4 +10,7 @@ export const replaceMongoIdInArray = (array) => {
 export const replaceMongoIdInObject = (obj) => {
     const { _id, ...updatedObj } = { ...obj, id: obj._id.toString() }
     return updatedObj;
+}
+export const isDateInbetween = (date, start, end) => {
+    return moment(date).valueOf() >= moment(start).valueOf() && moment(date).valueOf() <= moment(end).valueOf()
 }
