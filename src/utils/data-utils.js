@@ -15,8 +15,6 @@ export const isDateInbetween = (date, start, end) => {
     return moment(date).valueOf() >= moment(start).valueOf() && moment(date).valueOf() <= moment(end).valueOf()
 }
 
-export const getDayCountFromDate = (from, to) => {
-    console.log(from)
-    console.log(to)
+export const getDayCountFromDate = (from, to) => {    
     return moment(to).diff(moment(from), 'days') + 1;
 }

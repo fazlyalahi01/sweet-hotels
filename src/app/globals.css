@@ -77,4 +77,8 @@
   button:disabled {
     @apply cursor-not-allowed bg-slate-400;
   }
+
+  .btn-disabled {
+    @apply bg-gray-500 px-8 py-2 rounded-md block text-white font-bold shadow-lg cursor-not-allowed;
+  }
 }

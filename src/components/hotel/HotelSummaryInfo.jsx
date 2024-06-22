@@ -31,7 +31,7 @@ const HotelSummaryInfo = ({ fromListPage, info, checkin, checkout }) => {
             (
               <Link
                 href={info?.isBooked ? "" : `/payment/${info?.id}${params}`}
-                className="btn-primary bg-primary"
+                className={info?.isBooked ? "btn-disabled" : "btn-primary bg-primary"}
                 disabled={info?.isBooked}
               >Book</Link>)
         }

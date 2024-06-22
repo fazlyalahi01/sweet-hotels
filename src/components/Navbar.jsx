@@ -14,17 +14,14 @@ const Navbar = async ({ displayNavItems }) => {
         displayNavItems && (
           <ul >
             <li>
-              <Link href="#">Recommended Places</Link>
-            </li>
-
-            <li>
               <Link href="#">About Us</Link>
             </li>
-
             <li>
               <Link href="#">Contact us</Link>
             </li>
-
+            <li>
+              <Link href="/hotels">Explore Hotels</Link>
+            </li>
             <li>
               <Link href="/bookings">Bookings</Link>
             </li>

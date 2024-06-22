@@ -26,9 +26,11 @@ const PaymentForm = ({ checkinUserInfo, hotelInfo, checkin, checkout }) => {
     const payload = {
       hotelId: hotelInfo.id,
       userId: checkinUserInfo.id,
-      checkin: checkin,
-      checkout: checkout,
+      checkin: paymentInfo.checkin,
+      checkout: paymentInfo.checkout,
     }
+
+    console.log(payload, "payload");
 
     try {
       const res = await fetch("/api/payment", {
@@ -55,6 +57,7 @@ const PaymentForm = ({ checkinUserInfo, hotelInfo, checkin, checkout }) => {
           type="text"
           id="name"
           name="name"
+          required
           value={paymentInfo.name}
           className="w-full border border-[#CCCCCC]/60 py-1 px-2 rounded-md"
           onChange={handlechange}
@@ -69,6 +72,7 @@ const PaymentForm = ({ checkinUserInfo, hotelInfo, checkin, checkout }) => {
           type="email"
           id="email"
           name="email"
+          required
           value={paymentInfo.email}
           className="w-full border border-[#CCCCCC]/60 py-1 px-2 rounded-md"
           disabled
@@ -82,6 +86,7 @@ const PaymentForm = ({ checkinUserInfo, hotelInfo, checkin, checkout }) => {
             type="date"
             name="checkin"
             id="checkin"
+            required
             value={paymentInfo.checkin}
             onChange={handlechange} />
         </h4>
@@ -94,6 +99,7 @@ const PaymentForm = ({ checkinUserInfo, hotelInfo, checkin, checkout }) => {
             type="date"
             name="checkout"
             id="checkout"
+            required
             value={paymentInfo.checkout}
             onChange={handlechange} />
         </h4>
