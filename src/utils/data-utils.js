@@ -18,3 +18,12 @@ export const isDateInbetween = (date, start, end) => {
 export const getDayCountFromDate = (from, to) => {    
     return moment(to).diff(moment(from), 'days') + 1;
 }
+
+export const refineSearchParams = (searchParams) => {
+    const params = decodeURI(searchParams);
+    if(params === "undefined") {
+        return ""
+    }else {
+        return params; 
+    }
+}

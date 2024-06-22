@@ -1,8 +1,11 @@
 import Filter from "@/components/search/Filter";
 import HotelList from "@/components/hotel/HotelList";
 import Search from "@/components/search/Search";
+import { refineSearchParams } from "@/utils/data-utils";
 
-const HotelListPage = ({ searchParams: { destination, checkin, checkout } }) => {
+
+
+const HotelListPage = ({ searchParams: { destination, checkin, checkout, stars } }) => {
     return (
         <>
             <section className="bg-[url('/hero-bg.jpg')] bg-cover bg-no-repeat bg-center pt-[100px] pb-[60px]  relative grid place-items-center">
@@ -13,8 +16,8 @@ const HotelListPage = ({ searchParams: { destination, checkin, checkout } }) => 
             </section>
             <section className="py-12">
                 <div className="container grid grid-cols-12">
-                    <Filter />
-                    <HotelList  destination={destination} checkin={checkin} checkout={checkout}/>
+                    <Filter  />
+                    <HotelList destination={destination} checkin={checkin} checkout={checkout} stars={refineSearchParams(stars)}/>
                 </div>
             </section>
         </>

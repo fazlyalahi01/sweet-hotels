@@ -5,7 +5,7 @@ import { reviewModel } from "@/models/review-model";
 import { userModel } from "@/models/user-model";
 import { isDateInbetween, replaceMongoIdInArray, replaceMongoIdInObject } from "@/utils/data-utils";
 
-async function getHotels(destination, checkin, checkout,) {
+async function getHotels(destination, checkin, checkout, stars) {
     const regex = new RegExp(destination, "i");
     const hotelsByDestination = await hotelModel
         .find({ city: { $regex: regex } })
@@ -27,6 +27,13 @@ async function getHotels(destination, checkin, checkout,) {
                 return hotel;
             })
         );
+    }
+
+    if(stars){
+        const starArr = stars.split("|");
+        allHotels = allHotels.filter((hotel) => {
+            return starArr.includes(hotel.propertyCategory.toString());
+        });
     }
     return replaceMongoIdInArray(allHotels);
 }

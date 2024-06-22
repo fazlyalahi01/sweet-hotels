@@ -6,13 +6,12 @@ import React from "react";
 const Search = ({ fromList, destination, checkin, checkout }) => {
   const params = useSearchParams()
   const pathname = usePathname()
-  const { replace } = useRouter()
-  const now = moment();
+  const { replace } = useRouter()  
 
   const [searchTerm, setSearchTerm] = React.useState({
     destination: destination || "Palermo",
-    checkin: checkin || now.format("YYYY-MM-DD"),
-    checkout: checkout || now.add(1, "d").format("YYYY-MM-DD")
+    checkin: checkin ,
+    checkout: checkout 
   })
   const [allowSearch, setAllowSearch] = React.useState(true);
 

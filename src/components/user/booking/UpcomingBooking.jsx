@@ -1,7 +1,6 @@
 import BookingCard from "./BookingCard";
 
 const UpcomingBooking = ({ bookings }) => {
-  console.log(bookings);
   return (
     <div className="space-y-4">
       <h2 className="text-xl font-bold">⌛️ Upcomming Bookings</h2>

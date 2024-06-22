@@ -30,8 +30,6 @@ const PaymentForm = ({ checkinUserInfo, hotelInfo, checkin, checkout }) => {
       checkout: paymentInfo.checkout,
     }
 
-    console.log(payload, "payload");
-
     try {
       const res = await fetch("/api/payment", {
         method: "POST",
