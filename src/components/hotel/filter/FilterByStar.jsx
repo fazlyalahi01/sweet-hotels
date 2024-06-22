@@ -28,7 +28,7 @@ const FilterByStar = () => {
             setQuery(queryInCategory);
         }
 
-    }, []);
+    }, [params]);
 
 
     React.useEffect(() => {
@@ -39,7 +39,7 @@ const FilterByStar = () => {
             params.delete("stars");
         }
         replace(`${pathname}?${params.toString()}`)
-    }, [query])
+    }, [params, pathname, query, replace])
 
     return (
         <div>
