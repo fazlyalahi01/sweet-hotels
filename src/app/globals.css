@@ -4,18 +4,36 @@
 
 @layer utilities {
   nav {
-    @apply max-w-7xl flex mx-auto justify-between px-4 py-4  w-full left-0 right-0 z-50;
+    @apply max-w-7xl flex mx-auto justify-between px-4 py-4 w-full left-0 right-0 z-50;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply text-[#1a2b3d];
+  }
+
+  p,
+  label,
+  span, 
+  li {
+    @apply text-[#5a6573];
   }
 
   nav img {
     @apply h-[35px] md:h-[40px] lg:h-[50px];
   }
+
   nav ul {
     @apply hidden md:flex items-center gap-6;
   }
-/* bg-primary */
+
+  /* bg-primary */
   nav ul .login {
-    @apply  px-6 py-3 text-white font-bold rounded-md; 
+    @apply px-6 py-3 text-white font-bold rounded-md;
   }
 
   .container {
@@ -39,12 +57,12 @@
   /* bg-primary hover:shadow-primary/50 */
 
   .search-btn {
-    @apply  px-8 py-3 rounded-md block mx-auto text-white font-bold -translate-y-1/2 shadow-lg  active:scale-95 transition-all;
+    @apply px-8 py-3 rounded-md block mx-auto text-white font-bold -translate-y-1/2 shadow-lg active:scale-95 transition-all;
   }
 
   /* bg-primary hover:shadow-primary/50 */
   .btn-primary {
-    @apply  px-8 py-2 rounded-md block text-white font-bold shadow-lg  active:scale-95 transition-all;
+    @apply px-8 py-2 rounded-md block text-white font-bold shadow-lg active:scale-95 transition-all;
   }
 
   #searchParams {

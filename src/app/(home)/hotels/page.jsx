@@ -15,7 +15,7 @@ const HotelListPage = ({ searchParams: { destination, checkin, checkout, stars }
                 </div>
             </section>
             <section className="py-12">
-                <div className="container grid grid-cols-12">
+                <div className="container grid md:grid-cols-12">
                     <Filter  />
                     <HotelList destination={destination} checkin={checkin} checkout={checkout} stars={refineSearchParams(stars)}/>
                 </div>

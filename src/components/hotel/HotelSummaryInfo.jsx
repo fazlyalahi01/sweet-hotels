@@ -22,9 +22,9 @@ const HotelSummaryInfo = ({ fromListPage, info, checkin, checkout }) => {
         </div>
       </div>
 
-      <div className="flex flex-col gap-2 items-end justify-center">
-        <h2 className="text-2xl font-bold text-right">${(info?.highRate + info?.lowRate) / 2}/night</h2>
-        <p className=" text-right">Per Night for 1 Room</p>
+      <div className="flex flex-col gap-2 md:items-end justify-center">
+        <h2 className="text-2xl font-bold md:text-right">${(info?.highRate + info?.lowRate) / 2}/night</h2>
+        <p className=" md:text-right">Per Night for 1 Room</p>
 
         {
           fromListPage ? (<Link href={`/hotels/${info?.id}${params}`} className="btn-primary bg-primary">Details</Link>) :

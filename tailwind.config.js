@@ -1,5 +1,5 @@
 /** @type {import('tailwindcss').Config} */
-module.exports = {  
+module.exports = {
   content: [
     './src/pages/**/*.{js,jsx}',
     './src/components/**/*.{js,jsx}',
@@ -18,6 +18,8 @@ module.exports = {
     extend: {
       colors: {
         primary: "#FF6A28",
+        grayDark: "#1a2b3d",
+        grayLight: "#5a6573",
       },
       borderRadius: {
         lg: "var(--radius)",

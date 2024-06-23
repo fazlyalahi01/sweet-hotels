@@ -4,16 +4,15 @@ import { signOut } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import React from "react";
 import { IoIosArrowDown } from "react-icons/io";
-import { RxCross2, RxHamburgerMenu } from "react-icons/rx";
+import { RxHamburgerMenu } from "react-icons/rx";
 import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover";
 
 const NavbarV2 = ({ userSeesion }) => {
     const pathname = usePathname();
 
     return (
-        <nav className={` flex justify-between items-center py-4 transition-all ease-in-out duration-300`}>
+        <nav className={` flex justify-between items-center py-4 transition-all ease-in-out duration-300 border-b`}>
             <div className="flex justify-between items-center  w-full md:w-auto">
                 <Link href={"/"}>
                     <Image src={"/logo-sweet-hotels.png"} height={70} width={100} alt="logo" />
@@ -26,7 +25,7 @@ const NavbarV2 = ({ userSeesion }) => {
                         <PopoverContent>
                             <ul className="flex flex-col bg-white">
                                 {siteConfig.navItems.map((item, index) => (
-                                    <li key={index} className="cursor-pointer text-gray-500 text-sm hover:text-secondary duration-500 p-2  border-b">
+                                    <li key={index} className="cursor-pointer  text-sm hover:text-secondary duration-500 p-2  border-b">
                                         <Link href={item.href}>{item.label}</Link>
                                     </li>
                                 ))}
@@ -38,7 +37,7 @@ const NavbarV2 = ({ userSeesion }) => {
 
             <ul className="hidden md:flex ">
                 {siteConfig.navItems.map((item, index) => (
-                    <li key={index} className={`cursor-pointer text-gray-500 hover:text-secondary duration-500 flex-grow ${pathname === item.href ? " text-primary" : ""}`}>
+                    <li key={index} className={`cursor-pointer  hover:text-secondary duration-500 flex-grow hover:text-black ${pathname === item.href ? " text-primary " : ""}`}>
                         <Link href={item.href}>{item.label}</Link>
                     </li>
                 ))}
@@ -49,12 +48,12 @@ const NavbarV2 = ({ userSeesion }) => {
                     <Popover>
                         <PopoverTrigger>
                             <div className="flex items-center gap-3 border rounded-full p-1 shadow-sm">
-                                <div className="  max-h-[30px] max-w-[30px] rounded-full h-[30px] w-[30px] bg-orange-600   text-gray-500 md:grid place-items-center object-fit">
+                                <div className="  max-h-[30px] max-w-[30px] rounded-full h-[30px] w-[30px] bg-orange-600    md:grid place-items-center object-fit">
                                     {
                                         userSeesion?.user?.image ? (
                                             <Image src={userSeesion?.user?.image} alt={userSeesion?.user?.name} height={30} width={30} className="rounded-full h-[30px] w-[30px] border-primary border-2" />
                                         ) : (
-                                            <h1>{userSeesion?.user?.name?.charAt(0).toUpperCase()} </h1>
+                                            <p className="text-white">{userSeesion?.user?.name?.charAt(0).toUpperCase()} </p>
                                         )
 
                                     }
@@ -75,20 +74,18 @@ const NavbarV2 = ({ userSeesion }) => {
 
                                     }
                                 </div>
-                                <p className="text-gray-500 text-sm">{userSeesion?.user?.email}</p>
+                                <p className=" text-sm">{userSeesion?.user?.email}</p>
                             </div>
-                            <div className="pt-2 space-y-2 text-gray-500 text-sm">
-                                <Link href="/bookings">My Bookings</Link>
-                                <p className="cursor-pointer" onClick={() => signOut()}>Sign Out</p>
+                            <div className="pt-2 space-y-2  text-sm">
+                                <Link href="/bookings" className="text-grayLight hover:text-black">My Bookings</Link>
+                                <p className="cursor-pointer hover:text-black" onClick={() => signOut()}>Sign Out</p>
                             </div>
                         </PopoverContent>
                     </Popover>
                 ) : (
-                    <Link href="/login" className="text-primary px-4 py-2 rounded-md ">Login</Link>
+                    <Link href="/login" className="text-primary px-4 py-2 border rounded-full border-primary">Login</Link>
                 )
             }
-
-
         </nav >
     );
 };

@@ -5,6 +5,7 @@ import { Inter } from "next/font/google";
 import "../globals.css";
 import { auth } from "../../../auth";
 import { siteConfig } from "@/config/site";
+import Footer from "@/components/common/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -25,6 +26,7 @@ export default async function RootLayout({ children }) {
         <main>
           {children}
         </main>
+        <Footer />
       </body>
     </html>
   );
