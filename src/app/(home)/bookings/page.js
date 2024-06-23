@@ -24,13 +24,13 @@ const BookingsPage = async () => {
     })
     return (
         <>
-            <section className="mt-[100px]">
+            <section>
                 <div className="container">
                     <ProfileInfo />
                 </div>
             </section>
             <section>
-                <div className="container">
+                <div className="container pb-8">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                         <PastBooking bookings={pastBookings} />
                         <UpcomingBooking bookings={upcomingBookings} />

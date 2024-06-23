@@ -2,11 +2,11 @@ import { siteConfig } from '@/config/site';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
-import { FaFacebookF, FaLinkedinIn, FaTwitter, FaPinterestP } from 'react-icons/fa';
+import { FaFacebookF, FaLinkedinIn, FaTwitter, FaPinterestP, FaWhatsapp } from 'react-icons/fa';
 
 const Footer = () => {
     return (
-        <footer className="border-t text-gray-300 md:py-12 ps-4">
+        <footer className="text-gray-300 md:py-12 ps-4 bg-[#EEE]/60">
             <div className="container-x py-8 mx-auto flex flex-wrap justify-between space-y-8 md:space-y-0 ">
 
                 <div className="w-full md:w-1/4 pr-8">
@@ -17,11 +17,13 @@ const Footer = () => {
                         Your onestop hotel booking platform. Find all the best hotel deals in one place
                     </p>
                     <div className="flex space-x-2">
-                        <a href="#" className="text-white hover:text-white bg-gray-800 p-1 rounded"><FaFacebookF /></a>
-                        <a href="#" className="text-white hover:text-white bg-gray-800 p-1 rounded"><FaLinkedinIn /></a>
-                        <a href="#" className="text-white hover:text-white bg-gray-800 p-1 rounded"><FaTwitter /></a>
+                        <a href="https://www.facebook.com/fazlyalahiru/" className="text-white hover:text-white bg-gray-800 p-1 rounded"><FaFacebookF /></a>
+                        <a href="https://www.linkedin.com/in/fazlyalahiru/" className="text-white hover:text-white bg-gray-800 p-1 rounded"><FaLinkedinIn /></a>
+                        <a href="https://wa.me/8801303359120" className="text-white hover:text-white bg-gray-800 p-1 rounded"><FaWhatsapp /></a>
                     </div>
                 </div>
+
+
 
                 <div className="w-full md:w-1/4 pr-8">
                     <h3 className="text-xl font-semibold  mb-4">Our Location</h3>
