@@ -20,9 +20,7 @@ export default async function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        {/* <Navbar displayNavItems={true}/> */}
         <NavbarV2 userSeesion={session} />
-
         <main>
           {children}
         </main>
