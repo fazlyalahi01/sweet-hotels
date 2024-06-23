@@ -69,7 +69,7 @@
 
   /* bg-primary hover:shadow-primary/50 */
   .btn-primary {
-    @apply px-8 py-2 rounded-md block text-white font-bold shadow-lg active:scale-95 transition-all;
+    @apply px-8 py-2 rounded-md block text-white font-bold shadow-lg active:scale-95 transition-all rounded;
   }
 
   #searchParams {

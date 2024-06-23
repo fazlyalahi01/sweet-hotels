@@ -11,7 +11,7 @@ export const siteConfig = {
             href: "/about",
         },
         {
-            label: "Promotions",
+            label: "Offers",
             href: "/promotions",
         },
         {
