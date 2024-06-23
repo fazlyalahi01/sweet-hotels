@@ -22,6 +22,11 @@
     @apply max-w-7xl mx-auto w-full px-4;
   }
 
+  .container-x {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+
   /* Input */
   select {
     @apply w-full px-4 py-2 rounded-md border border-black/20 bg-transparent;

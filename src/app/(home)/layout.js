@@ -1,23 +1,27 @@
+
+import NavbarV2 from "@/components/common/NavbarV2";
+import dbConnect from "@/database/dbConnect";
 import { Inter } from "next/font/google";
 import "../globals.css";
-import Navbar from "@/components/Navbar";
-import dbConnect from "@/database/dbConnect";
+import { auth } from "../../../auth";
+import { siteConfig } from "@/config/site";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "StaySwift",
-  description: "Find perfect hotels for your stay",
+  title: siteConfig.name,
+  description: siteConfig.description,
 };
 
 export default async function RootLayout({ children }) {
-
+  const session = await auth();
   await dbConnect();
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Navbar displayNavItems={true}/>
-        
+        {/* <Navbar displayNavItems={true}/> */}
+        <NavbarV2 userSeesion={session} />
+
         <main>
           {children}
         </main>
