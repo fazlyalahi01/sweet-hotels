@@ -6,7 +6,7 @@ import Logout from "./auth/Logout"
 const Navbar = async ({ displayNavItems }) => {
   const session = await auth()
   return (
-    <nav >
+    <nav>
       <Link href="/">
         <p className="text-primary font-bold text-3xl capitalize">stay Swift</p>
       </Link>
@@ -14,7 +14,7 @@ const Navbar = async ({ displayNavItems }) => {
         displayNavItems && (
           <ul >
             <li>
-              <Link href="#">About Us</Link>
+              <Link href="/about">About Us</Link>
             </li>
             <li>
               <Link href="#">Contact us</Link>

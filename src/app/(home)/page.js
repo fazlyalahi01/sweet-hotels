@@ -3,7 +3,7 @@ import { Suspense } from "react";
 
 export default function Home() {
     return (
-        <section className="bg-[#F6F3E9] h-screen max-h-screen relative grid place-items-center bg-[url('/hero-bg.jpg')] bg-cover bg-no-repeat bg-center">
+        <section className="bg-[#F6F3E9]  max-h-screen relative grid place-items-center bg-[url('/hero-bg.jpg')] bg-cover bg-no-repeat bg-center">
             <div className="absolute inset-0 bg-black opacity-10 z-0"></div>
             <div className="container items-center pb-12 z-20">
                 <div className="col-span-7">
