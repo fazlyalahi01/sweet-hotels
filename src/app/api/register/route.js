@@ -1,8 +1,10 @@
+import dbConnect from "@/database/dbConnect";
 import { userModel } from "@/models/user-model";
 import bcryptjs from "bcryptjs";
 import { NextResponse } from "next/server";
 
 export async function POST(request) {
+    await dbConnect();
     try {
         const body = await request.json();
         const { fname, lname, email, password } = body;

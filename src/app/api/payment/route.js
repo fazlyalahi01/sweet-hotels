@@ -1,8 +1,10 @@
+import dbConnect from "@/database/dbConnect";
 import { bookingModel } from "@/models/booking-model";
 import mongoose from "mongoose";
 import { NextResponse } from "next/server";
 
 export async function POST(request) {
+    await dbConnect();
     try {
         const body = await request.json();
         const { hotelId, userId, checkin, checkout } = body;
