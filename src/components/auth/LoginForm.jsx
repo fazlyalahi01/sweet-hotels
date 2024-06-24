@@ -1,31 +1,43 @@
 "use client";
 
 
-import { useState } from "react";
+import { useAuth } from "@/contexts/authProvider/AuthProvider";
 import { useRouter } from "next/navigation";
-import { login } from "@/actions";
+import React, { useState } from "react";
 
 const LoginForm = () => {
   const [error, setError] = useState("");
   const router = useRouter();
+  const { login } = useAuth();
+  const [loading, setLoading] = React.useState(false);
+
 
   async function onSubmit(event) {
     event.preventDefault();
 
     try {
       const formData = new FormData(event.target);
-      const response = await login(formData);
-      if (!!response.error) {
-        setError(response.error);
-      } else {
-        router.push("/bookings");
-      }
-
+      const email = formData.get("email");
+      const password = formData.get("password");
+      console.log(email, password);
+      await login(
+        email,
+        password,
+        () => {
+          setLoading(false);
+          // router.push("/bookings");
+        },
+        (errMsg) => {
+          setError(errMsg);
+          setLoading(false);
+        }
+      );
     } catch (err) {
       setError(err.message);
     }
   }
-
+  const { userInfo } = useAuth();
+  console.log(userInfo)
   return (
     <>
       {error && (
