@@ -6,6 +6,7 @@ import "../globals.css";
 import { auth } from "../../../auth";
 import { siteConfig } from "@/config/site";
 import Footer from "@/components/common/Footer";
+import { AuthProvider } from "@/contexts/authProvider/AuthProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,11 +21,13 @@ export default async function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        <NavbarV2 userSeesion={session} />
-        <main>
-          {children}
-        </main>
-        <Footer />
+        <AuthProvider>
+          <NavbarV2 userSeesion={session} />
+          <main>
+            {children}
+          </main>
+          <Footer />
+        </AuthProvider>
       </body>
     </html>
   );

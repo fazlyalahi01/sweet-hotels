@@ -4,6 +4,7 @@ import Navbar from "@/components/Navbar";
 import dbConnect from "@/database/dbConnect";
 import { siteConfig } from "@/config/site";
 import Footer from "@/components/common/Footer";
+import { AuthProvider } from "@/contexts/authProvider/AuthProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,11 +19,13 @@ export default async function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Navbar />
-        <main>
-          {children}
-        </main>
-        <Footer />
+        <AuthProvider>
+          <Navbar />
+          <main>
+            {children}
+          </main>
+          <Footer />
+        </AuthProvider>
       </body>
     </html>
   );
