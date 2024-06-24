@@ -7,9 +7,12 @@ import { usePathname } from "next/navigation";
 import { IoIosArrowDown } from "react-icons/io";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover";
+import { useAuth } from "@/contexts/authProvider/AuthProvider";
 
 const NavbarV2 = ({ userSeesion }) => {
     const pathname = usePathname();
+    const { userInfo, logout, isLogin } = useAuth();
+    console.log(userInfo)
 
     return (
         <nav className={` flex justify-between items-center py-4 transition-all ease-in-out duration-300 border-b`}>
@@ -20,7 +23,7 @@ const NavbarV2 = ({ userSeesion }) => {
                 <div className="block md:hidden z-50 mr-2 mt-1">
                     <Popover>
                         <PopoverTrigger>
-                            <RxHamburgerMenu  color={"#696969"} className="cursor-pointer" />                           
+                            <RxHamburgerMenu color={"#696969"} className="cursor-pointer" />
                         </PopoverTrigger>
                         <PopoverContent>
                             <ul className="flex flex-col bg-white">
@@ -44,19 +47,12 @@ const NavbarV2 = ({ userSeesion }) => {
             </ul>
 
             {
-                userSeesion?.user ? (
+               isLogin ? (
                     <Popover>
                         <PopoverTrigger>
                             <div className="flex items-center gap-3 border rounded-full p-1 shadow-sm">
                                 <div className="  max-h-[30px] max-w-[30px] rounded-full h-[30px] w-[30px] bg-orange-600    md:grid place-items-center object-fit">
-                                    {
-                                        userSeesion?.user?.image ? (
-                                            <Image src={userSeesion?.user?.image} alt={userSeesion?.user?.name} height={30} width={30} className="rounded-full h-[30px] w-[30px] border-primary border-2" />
-                                        ) : (
-                                            <p className="text-white">{userSeesion?.user?.name?.charAt(0).toUpperCase()} </p>
-                                        )
-
-                                    }
+                                    <p className="text-white">{userInfo?.user?.first_name?.charAt(0).toUpperCase()} </p>
                                 </div>
                                 <IoIosArrowDown color={"#D3D3D3"} />
                             </div>
@@ -65,20 +61,13 @@ const NavbarV2 = ({ userSeesion }) => {
                         <PopoverContent>
                             <div className="flex items-center gap-3 border-b pb-2">
                                 <div className="hidden  max-h-[30px] max-w-[30px] rounded-full h-[30px] w-[30px] bg-primary   text-white md:grid place-items-center">
-                                    {
-                                        userSeesion?.user?.image ? (
-                                            <Image src={userSeesion?.user?.image} alt={userSeesion?.user?.name} height={100} width={100} className="rounded-full" />
-                                        ) : (
-                                            <h1>{userSeesion?.user?.name?.charAt(0).toUpperCase()} </h1>
-                                        )
-
-                                    }
+                                    <h1>{userInfo?.user?.first_name?.charAt(0).toUpperCase()}</h1>
                                 </div>
-                                <p className=" text-sm">{userSeesion?.user?.email}</p>
+                                <p className=" text-sm">{userInfo?.user?.email}</p>
                             </div>
                             <div className="pt-2 space-y-2  text-sm">
                                 <Link href="/bookings" className="text-grayLight hover:text-black">My Bookings</Link>
-                                <p className="cursor-pointer hover:text-black" onClick={() => signOut()}>Sign Out</p>
+                                <p className="cursor-pointer hover:text-black" onClick={() => logout()}>Sign Out</p>
                             </div>
                         </PopoverContent>
                     </Popover>
